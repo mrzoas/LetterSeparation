@@ -1,0 +1,49 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Программа разбиения алфавита на гласные и согласные" Height="400" Width="575">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Не буквы"></Label>
+            <TextBox Grid.Column="1" Name="TextBoxSymbols" IsReadOnly="True" Margin="4"></TextBox>
+        </Grid>        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Буквы"></Label>
+            <TextBox Grid.Column="1" Name="TextBoxLetters" TextChanged="TextBoxLetters_TextChanged" Margin="4">абвгдеёжзийклмнопрстуфхцчшщъыьэюя</TextBox>            
+            <Button Grid.Column="2" Click="Button_Click" Margin="4" Padding="3">Анализ текста</Button>
+        </Grid>
+        <TextBox Grid.Row="2" Name="TextBoxInput" TextWrapping="Wrap" AcceptsReturn="True" TextChanged="TextBoxInput_TextChanged" Margin="4" Text="Текст для анализа" VerticalScrollBarVisibility="Auto"></TextBox>
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Grid.Row="0">Гласные</Label>
+            <Label Grid.Column="0" Grid.Row="1">Согласные</Label>
+            <Label Grid.Column="1" Grid.Row="0" Name="LabelType1count"></Label>
+            <Label Grid.Column="1" Grid.Row="1" Name="LabelType2count"></Label>
+            <Label Grid.Column="2" Grid.Row="0" Name="LabelType1">нет данных</Label>
+            <Label Grid.Column="2" Grid.Row="1" Name="LabelType2">нет данных</Label>
+        </Grid>
+    </Grid>
+</Window>
